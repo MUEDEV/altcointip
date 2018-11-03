@@ -1,3 +1,53 @@
+tradesatoshi.com:
+    enabled: true
+    domain: 'tradesatoshi.com'
+    https: true
+    urlpaths: ['/api/public/getmarketsummary?market={THING_FROM}_{THING_TO}']
+    jsonpaths: ['result.last']
+    coinlist: ['btc','mue']
+    fiatlist: []
+    uppercase: true
+
+novaexchange:
+    enabled: true
+    domain: 'novaexchange.com'
+    https: true
+    urlpaths: ['/remote/v2/market/info/{THING_TO}_{THING_FROM}/']
+    jsonpaths: ['.markets[0].last_price']
+    coinlist: ['btc','mue']
+    fiatlist: []
+    uppercase: true
+
+coinexchange:
+    enabled: true
+    domain: 'www.coinexchange.io'
+    https: true
+    urlpaths: ['/api/v1/getmarketsummary?market_id=63']
+    jsonpaths: ['result.LastPrice']
+    coinlist: ['btc','mue']
+    fiatlist: []
+    uppercase: false
+
+cryptopia:
+    enabled: true
+    domain: 'www.cryptopia.co.nz'
+    https: true
+    urlpaths: ['/api/GetMarket/1672']
+    jsonpaths: ['Data.LastPrice']
+    coinlist: ['btc','mue']
+    fiatlist: []
+    uppercase: false
+
+poloniex:
+    enabled: false
+    domain: 'poloniex.com'
+    https: true
+    urlpaths: ['/public?command=returnTicker']
+    jsonpaths: ['{THING_TO}_{THING_FROM}.highestBid','{THING_TO}_{THING_FROM}.lowestAsk']
+    coinlist: ['btc','mue']
+    fiatlist: []
+    uppercase: true
+
 blockchaininfo:
     enabled: true
     domain: 'blockchain.info'
@@ -7,7 +57,6 @@ blockchaininfo:
     coinlist: ['btc']
     fiatlist: ['usd','cny','jpy','sgd','hkd','cad','aud','nzd','gbp','dkk','sek','brl','chf','eur','rub','sll','pln','thb']
     uppercase: true
-    longname: false
 
 vircurex:
     enabled: true
@@ -18,10 +67,9 @@ vircurex:
     coinlist: ['anc','btc','dgc','dvc','frc','ftc','i0c','ixc','ltc','nmc','nvc','ppc','trc','xpm']
     fiatlist: ['usd','eur']
     uppercase: true
-    longname: false
 
 btce:
-    enabled: true
+    enabled: false
     domain: 'btc-e.com'
     https: true
     urlpaths: ['/api/2/{THING_FROM}_{THING_TO}/ticker']
@@ -29,7 +77,6 @@ btce:
     coinlist: ['btc','ltc','nmc','nvc','trc','ppc','ftc','xpm']
     fiatlist: ['usd','eur','rur']
     uppercase: false
-    longname: false
 
 bitstamp:
     enabled: true
@@ -40,18 +87,6 @@ bitstamp:
     coinlist: ['btc']
     fiatlist: ['usd']
     uppercase: false
-    longname: false
-
-mtgox:
-    enabled: false
-    domain: 'data.mtgox.com'
-    https: true
-    urlpaths: ['/api/2/{THING_FROM}{THING_TO}/money/ticker_fast']
-    jsonpaths: ['data.buy.value']
-    coinlist: ['btc']
-    fiatlist: ['usd','eur','jpy','gbp','rub']
-    uppercase: true
-    longname: false
 
 campbx:
     enabled: true
@@ -62,10 +97,9 @@ campbx:
     coinlist: ['btc']
     fiatlist: ['usd']
     uppercase: false
-    longname: false
 
 cryptsy:
-    enabled: true
+    enabled: false
     domain: 'pubapi.cryptsy.com'
     https: false
     urlpaths: ['/api.php?method=marketdatav2']
@@ -73,10 +107,9 @@ cryptsy:
     coinlist: ['btc','alf','amc','anc','arg','bqc','bte','btg','buk','cap','cgb','clr','cmc','crc','csc','dgc','dmd','elc','emd','frc','frk','fst','ftc','gdc','glc','glx','hbn','ixc','kgc','lk7','lky','ltc','mec','mnc','nbl','nec','nmc','nrb','nvc','phs','ppc','pts','pxc','pyc','qrk','sbc','spt','src','tag','tek','trc','wdc','xjo','xpm','yac','zet']
     fiatlist: []
     uppercase: true
-    longname: false
 
 bter:
-    enabled: true
+    enabled: false
     domain: 'bter.com'
     https: true
     urlpaths: ['/api/1/ticker/{THING_FROM}_{THING_TO}']
@@ -84,7 +117,6 @@ bter:
     coinlist: ['btc','ltc','ppc','frc','ftc','cnc','bqc','btb','wdc','yac','xpm','pts','zcc','dtc','red','cent','zet','src','mec','qrk']
     fiatlist: ['cny']
     uppercase: false
-    longname: false
 
 cryptotrade:
     enabled: true
@@ -95,10 +127,9 @@ cryptotrade:
     coinlist: ['btc','ltc','nmc','xpm','ppc','trc','ftc','dvc','wdc','dgc']
     fiatlist: ['usd','eur']
     uppercase: false
-    longname: false
 
 coinse:
-    enabled: true
+    enabled: false
     domain: 'www.coins-e.com'
     https: true
     urlpaths: ['/api/v2/markets/data/']
@@ -106,26 +137,13 @@ coinse:
     coinlist: ['btc','alp','amc','anc','bet','bqc','cgb','cin','crc','dem','dtc','elc','elp','emd','frk','ftc','gdc','glc','kgc','ltc','mec','nan','net','nrb','nvc','orb','ppc','pts','qrk','rec','red','spt','tag','trc','uno','wdc','xnc','xpm','zet']
     fiatlist: []
     uppercase: true
-    longname: false
 
 cryptocoincharts:
     enabled: true
-    domain: 'api.cryptocoincharts.info'
+    domain: 'cryptocoincharts.info'
     https: false
-    urlpaths: ['/tradingPair/{THING_FROM}_{THING_TO}']
+    urlpaths: ['/v2/api/tradingPair/{THING_FROM}_{THING_TO}']
     jsonpaths: ['price']
     coinlist: ['btc','ltc','ppc','nmc','xmp','mec','bqc','dgc','ifc','ixc','mnc','qrk','sbc','zet','doge','nxt','msc','ftc','nvc','dvc','frc','trc']
     fiatlist: ['usd','eur']
     uppercase: false
-    longname: false
-
-coinmarketcap:
-    enabled: true
-    domain: 'api.coinmarketcap.com'
-    https: true
-    urlpaths: ['/v1/ticker/{THING_FROM}/?convert={THING_TO}']
-    jsonpaths: ['0.price_{THING_TO}']
-    coinlist: ['dgb','btc']
-    fiatlist: ['usd','eur']
-    uppercase: false
-    longname: true
